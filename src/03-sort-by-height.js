@@ -10,14 +10,13 @@
  * The result should be [-1, 150, 160, 170, -1, -1, 180, 190]
  */
 
-let noOneArr = []; // error в логах
-const resultArr = [];
-let i = 0;
-
 function sortByHeight(arr) {
   // noOneArr = arr.filter((el) => {
   //   return el !== -1;
   // });
+  let noOneArr = []; // error в логах
+  const resultArr = [];
+  let i = 0;
 
   noOneArr = arr.filter((number) => number !== -1);
 
