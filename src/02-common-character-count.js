@@ -11,17 +11,19 @@
  */
 
 // let count = 0;
-function getCommonCharacterCount(/* s1, s2 */) {
-  throw new Error('Not implemented');
-  //   const uniqueArr1 = [...new Set(s1)];
-  //   const uniqueArr2 = [...new Set(s2)];
 
-  //   uniqueArr1.forEach((el) => {
-  //     if (uniqueArr2.includes(el)) {
-  //       count += 1;
-  //     }
-  //   });
-  //   // return count;
+function getCommonCharacterCount(s1, s2) {
+  let count = 0;
+  const uniqueArr1 = s1.split('');
+  const uniqueArr2 = s2.split('');
+
+  uniqueArr1.forEach((el) => {
+    if (uniqueArr2.includes(el)) {
+      count += 1;
+      uniqueArr2.splice(uniqueArr2.indexOf(el), 1);
+    }
+  });
+  return count;
 }
 
 module.exports = getCommonCharacterCount;
