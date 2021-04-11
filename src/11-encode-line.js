@@ -8,20 +8,21 @@
  * For aabbbc should return 2a3bc
  *
  */
-
 function encodeLine(str) {
-  const counter = 0;
+  let counter = 1;
   let result = '';
-  let b = 0;
-  while (counter < str.length) {
-    if (str[counter] !== str[counter + 1]) {
-      const countLet = b ? b + 1 : '';
-      result = result + countLet + str[counter];
-      b = 0;
-    } else {
-      b++;
+  for (let i = 0; i < str.length; i++) {
+    if (i > 0) {
+      if (str[i] === str[i - 1]) {
+        counter++;
+      } else {
+        result += `${counter > 1 ? counter : ''}${str[i - 1]}`;
+        counter = 1;
+      }
+      if (i === str.length - 1) {
+        result += `${counter > 1 ? counter : ''}${str[i]}`;
+      }
     }
-    b++;
   }
   return result;
 }
